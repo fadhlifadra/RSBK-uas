@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <h:head>
+    <title>PENDATAAN PASIEN COVID-19</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+  </h:head>
+  <h:body>
+  <center>
+    <h2>Pendataan Pasien Covid-19</h2>
+    <h:commandButton onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large w3-round-xlarge" value="Add Data"></h:commandButton>
+    <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+        <div class="w3-center"><br></br>
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close">×</span>
+        <img src="assets/plus.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"></img>
+      </div>
+
+        <h:form class="w3-container">
+        <div class="w3-section">
+          <label><b>Nama</b></label>
+          <h:inputText class="w3-input w3-border w3-margin-bottom" value="#{pasien.pasien_nama}"></h:inputText>
+          <label><b>Alamat</b></label>
+          <h:inputText class="w3-input w3-border w3-margin-bottom" value="#{pasien.pasien_alamat}"></h:inputText>
+          <label><b>Kondisi</b></label>
+          <h:inputText class="w3-input w3-border w3-margin-bottom" value="#{pasien.pasien_kondisi}"></h:inputText>
+          <b></b>
+          <h:commandButton class="w3-button w3-block w3-green w3-section w3-padding" value="Add" action="#{pasien.add_pasien()}"></h:commandButton>
+        </div>
+      </h:form>
+    </div>
+    </div>
+    <br></br>
+    <br></br>
+
+    
+    <h:form>        
+    <h:dataTable class="w3-table w3-striped w3-bordered w3-border w3-margin" style="max-width: 1000px" value="#{pasien.get_all_pasien}" var="pas">
+    <h:column>
+    <f:facet name="header">ID Pasien</f:facet>
+      <h:outputText value="#{pas.pasien_id}"></h:outputText>
+    </h:column> 
+    <h:column>
+      <f:facet name="header">Nama Pasien</f:facet>
+      <h:outputText value="#{pas.pasien_nama}"></h:outputText>
+    </h:column>
+    <h:column>
+      <f:facet name="header">Alamat Pasien</f:facet>
+      <h:outputText value="#{pas.pasien_alamat}" ></h:outputText>
+    </h:column>
+    <h:column>
+      <f:facet name="header">Kondisi Pasien</f:facet>
+      <h:outputText value="#{pas.pasien_kondisi}" ></h:outputText>
+    </h:column>
+    <h:column>
+      <f:facet name="header">Action</f:facet>
+      <h:commandButton class="w3-button w3-blue w3-round-xlarge w3-margin-right" value="Edit" action="#{pasien.edit_pasien}">
+        <f:param name="action" value="#{pas.pasien_id}" />
+      </h:commandButton>
+      <h:commandButton class="w3-button w3-red w3-round-xlarge" value="Delete" action="#{pasien.delete_pasien()}">
+        <f:param name="action" value="#{pas.pasien_id}" />
+      </h:commandButton>
+    </h:column>
+    </h:dataTable>
+    </h:form>
+    
+  </center>
+</h:body>
+</html>
