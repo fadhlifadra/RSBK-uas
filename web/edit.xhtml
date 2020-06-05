@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>PENDATAAN PASIEN COVID-19</title>       
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+    </h:head>
+    <h:body>
+        
+   <center>
+       <h:form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" style="max-width:600px">
+    <h2 class="w3-center">Edit Pasien</h2>
+     <label><b>Nama</b></label>
+     <h:inputText class="w3-input w3-border w3-margin-bottom" value="#{editpasien.pasien_nama}"></h:inputText>
+     <label><b>Alamat</b></label>
+     <h:inputText class="w3-input w3-border w3-margin-bottom" value="#{editpasien.pasien_alamat}"></h:inputText>
+     <label><b>Kondisi</b></label>
+     <h:inputText class="w3-input w3-border w3-margin-bottom" value="#{editpasien.pasien_kondisi}"></h:inputText>
+     
+     <h:commandButton class="w3-button w3-section w3-blue w3-ripple" value="Update" action="#{editpasien.update_pasien}">
+     <f:param name="update_id" value="#{editpasien.pasien_id}" />
+     </h:commandButton>
+   </h:form>
+        
+  </center>
+</h:body>
+</html>
+
