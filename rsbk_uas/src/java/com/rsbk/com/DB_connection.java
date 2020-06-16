@@ -1,6 +1,7 @@
 package com.rsbk.com;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 public class DB_connection {
     public static void main(String[] args) throws Exception{
         DB_connection obj_DB_connection=new DB_connection();
@@ -10,8 +11,8 @@ public class DB_connection {
         Connection connection=null;
         try {
         Class.forName("com.mysql.jdbc.Driver");
-        connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/db_rsbk","root","");
-        } catch (Exception e) {
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_rsbk", "root", "");
+        } catch (SQLException e) {
             System.out.println(e);
         }
         return connection;
