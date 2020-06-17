@@ -12,6 +12,7 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
+        <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -20,5 +21,6 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>faces/home.xhtml</welcome-file>
+        <welcome-file>faces/home.jsf</welcome-file>
     </welcome-file-list>
 </web-app>
